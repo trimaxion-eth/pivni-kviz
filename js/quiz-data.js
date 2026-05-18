@@ -8,13 +8,11 @@ export const META = {
 };
 
 export const RULES = [
-  "Hrajete v týmech – domluvte se na názvu a jednom zápisníkovi.",
-  "Každé kolo má 10 otázek (dvě témata × 5 otázek).",
-  "Odpovědi se vyhodnocují až po skončení celého kola – během kola na slidech nejsou.",
-  "U audioukázek (2. téma v 1. kole) moderátor přehraje zvuk.",
-  "U degustace (2. téma ve 2. kole, otázka 10) hodnotíte podle prkénka – bodování dle moderátora.",
-  "Tip na číslo: bod získá jen tým s nejbližším odhadem.",
-  "Částečné body: např. ½ bodu za dvě správné značky v portfoliu Heineken.",
+  "Hrajete v týmech – domluvte se na názvu a napište ho na každý odpovědní list.",
+  "Každé kolo má 10 otázek (dvě témata po pěti otázkách).",
+  "Odpovědi se vyhodnocují po sečtení každého kola.",
+  "Tipovací otázky: bod získá jen tým s nejbližším odhadem.",
+  "Poslední slovo má vždy moderátor.",
 ];
 
 /** @type {Record<string, string>} round-question → image path */
@@ -37,6 +35,35 @@ export const IMAGES = {
   "2-4": "images/03-04-egon.jfif",
   "2-5": "images/03-05-rody.jpg",
   "2-t2": "images/04-00-krumlov.jpg",
+  "2-6": "images/04-01-roky.png",
+  "2-7": "images/04-02-dasa.avif",
+  "2-8": "images/04-03-lezaky.webp",
+  "2-9": "images/04-04-vyhra.jpg",
+  "2-10": "images/04-05-degustace.jpeg",
+  "3-t1": "images/05-00-rekord.jpg",
+  "3-1": "images/05-01-tmave.jpeg",
+  "3-2": "images/05-02-festival.jpg",
+  "3-3": "images/05-03-lahve.jpeg",
+  "3-4": "images/05-04-nejsilnejsi.jpeg",
+  "3-5": "images/05-05-kuriozita.jpeg",
+  "3-t2": "images/06-00-beer-brands.jpeg",
+  "3-6": "images/06-01-guiness.jpeg",
+  "3-7": "images/06-02-limeta.jpeg",
+  "3-8": "images/06-03-spoj.jpeg",
+  "3-9": "images/06-04-radegast.jpeg",
+  "3-10": "images/06-05-heineken.jpeg",
+  "4-t1": "images/07-00-popkultura.jpeg",
+  "4-1": "images/07-01-bond.jpeg",
+  "4-2": "images/07-02-postriziny.jpeg",
+  "4-3": "images/07-03-kalich.jpeg",
+  "4-4": "images/07-04-homer.jpeg",
+  "4-5": "images/07-05-posel.jpeg",
+  "4-t2": "images/08-00-druhy.jpeg",
+  "4-6": "images/08-01-weiss.jpeg",
+  "4-7": "images/08-02-ipa.jpeg",
+  "4-8": "images/08-03-plzen.jpeg",
+  "4-9": "images/08-04-monk.jpeg",
+  "4-10": "images/08-05-cochtan.jpeg",
 };
 
 export const ROUNDS = [
@@ -187,6 +214,7 @@ export const ROUNDS = [
       {
         num: 5,
         title: "Pivní rekordy, mýty a kuriozity",
+        imageKey: "3-t1",
         questions: [
           {
             text: "Je pravda, že tmavé pivo obsahuje více alkoholu než světlé?",
@@ -227,6 +255,7 @@ export const ROUNDS = [
       {
         num: 6,
         title: "Slavné pivní značky",
+        imageKey: "3-t2",
         questions: [
           {
             text: "Jak se jmenuje pivovar, který vyrábí Guinness?",
@@ -281,6 +310,7 @@ export const ROUNDS = [
       {
         num: 7,
         title: "Pivo v popkultuře",
+        imageKey: "4-t1",
         questions: [
           {
             text: "V posledních filmech s Danielem Craigem měl Bond často pivo místo martini. Jaká značka?",
@@ -307,6 +337,7 @@ export const ROUNDS = [
       {
         num: 8,
         title: "Druhy piva",
+        imageKey: "4-t2",
         questions: [
           {
             text: "Čím se hlavně vyznačuje pivo weizen?",
