@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pivní kvíz · Port 1560</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main id="deck" class="deck">
+      <div class="deck__frame">
+        <img
+          class="deck__logo"
+          src="images/logo.jpg"
+          alt="Port 1560"
+          width="180"
+          height="72"
+        />
+        <div id="slide-root" class="deck__slide"></div>
+      </div>
+    </main>
+    <footer class="deck__controls">
+      <button type="button" id="btn-prev" class="deck__btn" aria-label="Předchozí slide">
+        ←
+      </button>
+      <span id="slide-counter" class="deck__counter">1 / 1</span>
+      <button type="button" id="btn-next" class="deck__btn" aria-label="Další slide">
+        →
+      </button>
+    </footer>
+    <script type="module" src="js/presentation.js"></script>
+  </body>
+</html>
