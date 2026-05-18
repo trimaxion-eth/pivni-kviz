@@ -308,7 +308,11 @@ function renderSlide(slide) {
 }
 
 function updateUI(index, total) {
-  document.getElementById("slide-counter").textContent = `${index + 1} / ${total}`;
+  const jump = document.getElementById("slide-jump");
+  jump.value = index + 1;
+  jump.min = 1;
+  jump.max = total;
+  document.getElementById("slide-total").textContent = ` / ${total}`;
   document.getElementById("btn-prev").disabled = index === 0;
   document.getElementById("btn-next").disabled = index === total - 1;
 }
@@ -326,7 +330,35 @@ function init() {
   document.getElementById("btn-prev").addEventListener("click", () => show(index - 1));
   document.getElementById("btn-next").addEventListener("click", () => show(index + 1));
 
+  const slideJump = document.getElementById("slide-jump");
+
+  function commitSlideJump() {
+    const n = parseInt(slideJump.value, 10);
+    if (!Number.isFinite(n)) {
+      slideJump.value = index + 1;
+      return;
+    }
+    show(n - 1);
+  }
+
+  slideJump.addEventListener("focus", () => slideJump.select());
+  slideJump.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      commitSlideJump();
+      slideJump.blur();
+    }
+  });
+  slideJump.addEventListener("change", commitSlideJump);
+  slideJump.addEventListener("blur", () => {
+    if (!Number.isFinite(parseInt(slideJump.value, 10))) {
+      slideJump.value = index + 1;
+    }
+  });
+
   document.addEventListener("keydown", (e) => {
+    if (e.target === slideJump) return;
+
     if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
       e.preventDefault();
       show(index + 1);

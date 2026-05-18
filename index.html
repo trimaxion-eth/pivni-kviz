@@ -29,7 +29,19 @@
       <button type="button" id="btn-prev" class="deck__btn" aria-label="Předchozí slide">
         ←
       </button>
-      <span id="slide-counter" class="deck__counter">1 / 1</span>
+      <label class="deck__counter" for="slide-jump">
+        <input
+          type="number"
+          id="slide-jump"
+          class="deck__counter-input"
+          min="1"
+          max="1"
+          value="1"
+          inputmode="numeric"
+          aria-label="Číslo slidu"
+        />
+        <span id="slide-total" class="deck__counter-total"> / 1</span>
+      </label>
       <button type="button" id="btn-next" class="deck__btn" aria-label="Další slide">
         →
       </button>
