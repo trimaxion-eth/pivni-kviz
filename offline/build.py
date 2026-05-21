@@ -18,11 +18,27 @@ OFFLINE_DIR = Path(__file__).resolve().parent
 BUNDLE_FILE = OFFLINE_DIR / "bundle.js"
 IMAGES_DIR = ROOT / "images"
 
-OFFLINE_FONTS = (
-    '  --font-display: "Cormorant Garamond", Georgia, serif;\n'
-    '  --font-body: "Source Sans 3", system-ui, sans-serif;',
-    '  --font-display: Georgia, "Times New Roman", serif;\n'
-    '  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;',
+FONT_FILES = (
+    (
+        "cormorant-garamond-latin.woff2",
+        "https://fonts.gstatic.com/s/cormorantgaramond/v21/"
+        "co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2",
+    ),
+    (
+        "cormorant-garamond-latin-ext.woff2",
+        "https://fonts.gstatic.com/s/cormorantgaramond/v21/"
+        "co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKgS4.woff2",
+    ),
+    (
+        "source-sans-3-latin.woff2",
+        "https://fonts.gstatic.com/s/sourcesans3/v19/"
+        "nwpStKy2OAdR1K-IwhWudF-R3w8aZQ.woff2",
+    ),
+    (
+        "source-sans-3-latin-ext.woff2",
+        "https://fonts.gstatic.com/s/sourcesans3/v19/"
+        "nwpStKy2OAdR1K-IwhWudF-R3wEaZfrc.woff2",
+    ),
 )
 
 JS_FILES = (
@@ -48,9 +64,23 @@ def offline_image_paths(js: str) -> str:
     return re.sub(r'"images/', '"../images/', js)
 
 
+def ensure_fonts() -> None:
+    import urllib.request
+
+    fonts_dir = OFFLINE_DIR / "fonts"
+    fonts_dir.mkdir(parents=True, exist_ok=True)
+    for name, url in FONT_FILES:
+        path = fonts_dir / name
+        if path.exists():
+            continue
+        print(f"Downloading {name} …")
+        urllib.request.urlretrieve(url, path)
+
+
 def offline_css() -> str:
-    css = (ROOT / "css" / "styles.css").read_text(encoding="utf-8")
-    return css.replace(*OFFLINE_FONTS)
+    fonts = (OFFLINE_DIR / "fonts.css").read_text(encoding="utf-8")
+    styles = (ROOT / "css" / "styles.css").read_text(encoding="utf-8")
+    return fonts + "\n" + styles
 
 
 def build_bundle() -> None:
@@ -77,6 +107,7 @@ def main() -> None:
     if not IMAGES_DIR.is_dir():
         print(f"Warning: {IMAGES_DIR} not found", file=sys.stderr)
 
+    ensure_fonts()
     build_offline_css()
     build_bundle()
     print("Open offline/index.html in a browser (no server required).")

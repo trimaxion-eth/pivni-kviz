@@ -17,7 +17,7 @@ Po změně znovu sestavte offline bundle:
 python3 offline/build.py
 ```
 
-Vygeneruje `offline/bundle.js` (sloučené JS bez ES modulů) a `offline/offline.css` (styly se systémovými fonty pro práci bez internetu).
+Vygeneruje `offline/bundle.js` (sloučené JS bez ES modulů) a `offline/offline.css` (styly + lokální fonty Cormorant Garamond a Source Sans 3, stejné jako online verze).
 
 ## Spuštění
 
