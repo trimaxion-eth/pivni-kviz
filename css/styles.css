@@ -558,3 +558,80 @@ body::before {
     opacity: 0.32;
   }
 }
+
+/* Static export: all slides stacked (index.html?export) */
+.deck--static-export {
+  overflow: auto;
+}
+
+.deck--static-export .deck {
+  display: block;
+  height: auto;
+  min-height: 100%;
+  padding: 2rem 0;
+}
+
+.deck--static-export .deck__frame {
+  max-width: 1280px;
+  max-height: none;
+  height: auto;
+  margin: 0 auto;
+}
+
+.deck--static-export .deck__slide--stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.deck--static-export .deck__slide-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 720px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.deck--static-export .deck__slide-page .slide {
+  height: 100%;
+  border: none;
+  animation: none;
+}
+
+@media print {
+  html,
+  body {
+    overflow: visible;
+    height: auto;
+    background: var(--bg);
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .deck--static-export .deck {
+    padding: 0;
+  }
+
+  .deck--static-export .deck__slide-page {
+    page-break-after: always;
+    break-after: page;
+    border: none;
+    min-height: 100vh;
+    aspect-ratio: auto;
+  }
+
+  .deck--static-export .deck__slide-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .deck__logo {
+    opacity: 0.38;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

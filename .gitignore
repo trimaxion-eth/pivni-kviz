@@ -1,0 +1,3 @@
+# Generated offline bundle (run: python3 offline/build.py)
+offline/bundle.js
+offline/offline.css

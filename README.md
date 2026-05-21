@@ -13,6 +13,16 @@ python3 -m http.server 8765
 
 Poté v prohlížeči: **http://localhost:8765**
 
+### Offline (bez serveru)
+
+Ve složce **`offline/`** — otevřete `offline/index.html` (bez serveru). Text a obrázky upravujte v kořeni (`js/quiz-data.js`, `images/`), pak:
+
+```bash
+python3 offline/build.py
+```
+
+Viz `offline/README.md`.
+
 ## Ovládání
 
 | Akce | Klávesa |
@@ -31,6 +41,8 @@ Poté v prohlížeči: **http://localhost:8765**
 - `js/quiz-data.js` – data pro slidy
 - `js/presentation.js` – vykreslení a navigace
 - `css/styles.css` – vzhled (Port 1560)
+- `offline/` – offline prezentace (`index.html` + `build.py`) ze stejných zdrojů jako online
+- `presentation/` – portable export (stejný vzhled jako `index.html`) + PDF
 
 ## Průběh kola
 

@@ -1,0 +1,7 @@
+{
+  "name": "pivni-kviz",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Pivní kvíz – beer quiz presentation deck for Port 1560",
+  "private": true
+}

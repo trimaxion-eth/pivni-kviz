@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pivní kvíz · Port 1560 (offline)</title>
+    <link rel="stylesheet" href="offline.css" />
+  </head>
+  <body>
+    <main id="deck" class="deck">
+      <div class="deck__frame">
+        <img
+          class="deck__logo"
+          src="../images/logo.jpg"
+          alt="Port 1560"
+          width="180"
+          height="72"
+        />
+        <div id="slide-root" class="deck__slide"></div>
+      </div>
+    </main>
+    <footer class="deck__controls">
+      <button type="button" id="btn-prev" class="deck__btn" aria-label="Předchozí slide">
+        ←
+      </button>
+      <label class="deck__counter" for="slide-jump">
+        <input
+          type="number"
+          id="slide-jump"
+          class="deck__counter-input"
+          min="1"
+          max="1"
+          value="1"
+          inputmode="numeric"
+          aria-label="Číslo slidu"
+        />
+        <span id="slide-total" class="deck__counter-total"> / 1</span>
+      </label>
+      <button type="button" id="btn-next" class="deck__btn" aria-label="Další slide">
+        →
+      </button>
+    </footer>
+    <script src="bundle.js"></script>
+  </body>
+</html>

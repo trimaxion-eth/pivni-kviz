@@ -152,33 +152,28 @@ function buildSlides() {
   return slides;
 }
 
-function renderSlide(slide) {
-  const root = document.getElementById("slide-root");
-  let html = "";
-
+function slideToHtml(slide) {
   switch (slide.type) {
     case "title":
-      html = `
+      return `
         <section class="slide slide--title">
           <p class="slide__eyebrow">Port ${META.year}</p>
           <h1 class="slide__hero">${escapeHtml(slide.title)}</h1>
           <p class="slide__subtitle">${escapeHtml(slide.subtitle)}</p>
           <p class="slide__place">${escapeHtml(slide.place)}</p>
         </section>`;
-      break;
 
     case "rules":
-      html = `
+      return `
         <section class="slide slide--rules">
           <h2 class="slide__heading">Pravidla</h2>
           <ul class="slide__list">
             ${slide.items.map((i) => `<li>${escapeHtml(i)}</li>`).join("")}
           </ul>
         </section>`;
-      break;
 
     case "round":
-      html = `
+      return `
         <section class="slide slide--round">
           <p class="slide__eyebrow">Připravte se</p>
           <h2 class="slide__round-num">${slide.num}. kolo</h2>
@@ -186,10 +181,9 @@ function renderSlide(slide) {
             ${slide.themes.map((t) => `<li>${escapeHtml(t)}</li>`).join("")}
           </ul>
         </section>`;
-      break;
 
     case "theme":
-      html = `
+      return `
         <section class="slide slide--theme${slide.image ? " slide--has-bg" : ""}">
           ${
             slide.image
@@ -203,7 +197,6 @@ function renderSlide(slide) {
             ${slide.audio ? '<p class="slide__badge">Audioukázky</p>' : ""}
           </div>
         </section>`;
-      break;
 
     case "question": {
       const label =
@@ -222,7 +215,7 @@ function renderSlide(slide) {
           .map((o) => `<li>${escapeHtml(o)}</li>`)
           .join("")}</ul>`;
       }
-      html = `
+      return `
         <section class="slide slide--question${slide.image ? " slide--split" : ""}${slide.matchOptions ? " slide--question-match" : ""}">
           <div class="slide__question-body">
             <p class="slide__eyebrow">${escapeHtml(label)}</p>
@@ -238,17 +231,15 @@ function renderSlide(slide) {
               : ""
           }
         </section>`;
-      break;
     }
 
     case "collect":
-      html = `
+      return `
         <section class="slide slide--collect">
           <p class="slide__eyebrow">${slide.round}. kolo</p>
           <h2 class="slide__heading">Konec kola</h2>
           <p class="slide__collect-msg">Čas na odevzdání a opravu odpovědí</p>
         </section>`;
-      break;
 
     case "answer": {
       const roundLabel =
@@ -265,7 +256,7 @@ function renderSlide(slide) {
       } else {
         answerBlock = `<p class="slide__ans-a slide__ans-a--hero">${escapeHtml(slide.answer ?? "")}</p>`;
       }
-      html = `
+      return `
         <section class="slide slide--answer${slide.image ? " slide--split" : ""}${hasStructured ? " slide--answer-structured" : ""}">
           <div class="slide__answer-body">
             <p class="slide__eyebrow">${escapeHtml(roundLabel)}</p>
@@ -279,32 +270,45 @@ function renderSlide(slide) {
               : ""
           }
         </section>`;
-      break;
     }
 
     case "extra-intro":
-      html = `
+      return `
         <section class="slide slide--round slide--extra">
           <p class="slide__eyebrow">Bonus</p>
           <h2 class="slide__round-num">Extra</h2>
           <p class="slide__theme-title">2 bonusové otázky</p>
         </section>`;
-      break;
 
     case "end":
-      html = `
+      return `
         <section class="slide slide--title slide--end">
           <h1 class="slide__hero">${escapeHtml(slide.title)}</h1>
           <p class="slide__subtitle">${slide.links.map(escapeHtml).join(" · ")}</p>
           <p class="slide__place">port1560.cz</p>
         </section>`;
-      break;
 
     default:
-      html = `<section class="slide"><p>Neznámý slide</p></section>`;
+      return `<section class="slide"><p>Neznámý slide</p></section>`;
   }
+}
 
-  root.innerHTML = html;
+function renderSlide(slide) {
+  document.getElementById("slide-root").innerHTML = slideToHtml(slide);
+}
+
+function initStaticExport(slides) {
+  document.body.classList.add("deck--static-export");
+  document.querySelector(".deck__controls")?.remove();
+
+  const root = document.getElementById("slide-root");
+  root.classList.add("deck__slide--stack");
+  root.innerHTML = slides
+    .map(
+      (slide, i) =>
+        `<div class="deck__slide-page" data-slide="${i + 1}">${slideToHtml(slide)}</div>`
+    )
+    .join("");
 }
 
 function updateUI(index, total) {
@@ -317,8 +321,16 @@ function updateUI(index, total) {
   document.getElementById("btn-next").disabled = index === total - 1;
 }
 
+const EXPORT_STATIC = new URLSearchParams(location.search).has("export");
+
 function init() {
   const slides = buildSlides();
+
+  if (EXPORT_STATIC) {
+    initStaticExport(slides);
+    return;
+  }
+
   let index = 0;
 
   function show(i) {
