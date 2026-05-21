@@ -61,5 +61,4 @@ Viz `offline/README.md`.
 
 ## Průběh kola
 
-1. Přechod kola → témata → 10 otázek → sběr odpovědí → 2 slidy s odpověďmi  
-2. Po 4. kole následuje **Extra** (2 otázky + odpovědi)
+1. Přechod kola → témata → 10 otázek → sběr odpovědí → odpovědi po otázkách

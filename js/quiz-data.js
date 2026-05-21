@@ -8,9 +8,9 @@ export const META = {
 };
 
 export const RULES = [
-  "Hrajete v týmech – domluvte se na názvu a napište ho na každý odpovědní list.",
+  "Domluvte se na názvu týmu a spolu s počtem hráčů ho uveďte na každý odpovědní list.",
   "Každé kolo má 10 otázek (dvě témata po pěti otázkách).",
-  "Odpovědi se vyhodnocují po sečtení každého kola.",
+  "Po každém kole moderátor opraví odpovědní listy a zobrazí správné odpovědi. Pořadí týmů ale uvede až na konci kvízu.",
   "Tipovací otázky: bod získá jen tým s nejbližším odhadem.",
   "Poslední slovo má vždy moderátor.",
 ];
@@ -88,8 +88,7 @@ export const ROUNDS = [
           },
           {
             text: "Jaký typ kvašení je typický pro české ležáky?",
-            answer:
-              "spodní kvašení – chladnější teplota; kvasinky klesají ke dnu (u svrchního kvašení vystupují na hladinu)",
+            answer: "spodní kvašení",
           },
           {
             text: "Co znamená zkratka IBU na pivní etiketě?",
@@ -106,8 +105,7 @@ export const ROUNDS = [
           {
             text: "Poznáte, která pražská značka piva se v 90. letech proslavila touto reklamou? Poznejte po zvuku.",
             hint: "Poslechněte si ukázku",
-            answer:
-              "Braník – „Kam bys chodil, celej svět sem přijde za tebou“ (od 1998)",
+            answer: "Braník",
           },
           {
             text: "Napište podle zvuku českou pohádku z roku 1984.",
@@ -117,18 +115,17 @@ export const ROUNDS = [
           {
             text: "Uveďte kapelu, která vydala tuto píseň z roku 1993.",
             hint: "Poslechněte si ukázku",
-            answer:
-              "Alkehol – Pivo dělá hezká těla (album „S úsměvem se pije líp“)",
+            answer: "Alkehol",
           },
           {
-            text: "Které americké trio natočilo píseň Beer Drinkers & Hell Raisers?",
+            text: "Které americké trio natočilo v roce 1973 píseň Beer Drinkers & Hell Raisers?",
             hint: "Poslechněte si ukázku",
             answer: "ZZ Top",
           },
           {
             text: "Dokončete sloku znělky seriálu Hospoda: „To je ten důvod má milá, že…“",
             hint: "Poslechněte si ukázku",
-            answer: "„…já tam raz dva tři jsem.“ (Hospoda, TV Nova 1996–1997)",
+            answer: "„…já tam raz dva tři jsem.“",
           },
         ],
       },
@@ -143,21 +140,21 @@ export const ROUNDS = [
         imageKey: "2-t1",
         questions: [
           {
-            text: "Co znamenal pojem „mílové právo“, které Petr z Rožmberka udělil v souvislosti s krčmami a pivovarem (1347)?",
+            text: "Co znamenal pojem „mílové právo“, které Petr z Rožmberka v roce 1347 udělil krumlovským krčmám a pivovaru?",
             answer:
-              "Výhradní právo prodávat pivo v okruhu jedné míle (cca 1,6 km) od města – bez konkurence zvenčí",
+              "Výhradní právo prodávat pivo v okruhu jedné míle od městských hradeb",
           },
           {
-            text: "Kolik pivovarů bylo v 18. století v Českém Krumlově (nejvyšší počet)?",
+            text: "Kromě panského pivovaru, v jehož areálu právě sedíme, měl Český Krumlov v minulosti více pivovarů. Nejvíc jich najednou fungovalo v 18. století. Kolik jich bylo?",
             answer:
               "4 – pivovar klarisek, arciděkanství a prelatury, panský pivovar, městský pivovar",
           },
           {
-            text: "Jak se jmenoval rožmberský rybníkář, který v roce 1561 nechal vybudovat vodovod pro panský pivovar?",
+            text: "Jak se jmenoval rybníkář, který v roce 1561 nechal vybudovat vodovod pro panský pivovar?",
             answer: "Jakub Krčín z Jelčan",
           },
           {
-            text: "Budova které instituce sloužila až do roku 1949 jako městský pivovar?",
+            text: "Budova které krumlovské instituce sloužila až do roku 1949 jako městský pivovar?",
             options: [
               "a) Hotel Růže",
               "b) Egon Schiele Art Centrum",
@@ -169,9 +166,9 @@ export const ROUNDS = [
           {
             text: "Seřaďte šlechtické vlastníky panského pivovaru od nejstarších po nejmladší.",
             options: [
-              "A. Eggenberkové",
-              "B. Schwarzenbergové",
-              "C. Rožmberkové",
+              "a) Eggenberkové",
+              "b) Schwarzenbergové",
+              "c) Rožmberkové",
             ],
             orderItems: ["Rožmberkové", "Eggenberkové", "Schwarzenbergové"],
           },
@@ -191,17 +188,19 @@ export const ROUNDS = [
             answer: "Dagmar Vlková",
           },
           {
-            text: "Které ležáky pivovar vaří celoročně?",
-            answer: "11°, 12°, 12° tmavá nakuřovaný speciál",
+            text: "Která piva vaří pivovar celoročně? Napiště alespoň druh piva a stupeň.",
+            answer:
+              "Světlý ležák 11°, Premium světlý ležák 12°, Tmavý nakuřovaný ležák 12°",
           },
           {
             text: "Jak se jmenuje speciál, který letos vyhrál cenu Chutná hezky. Jihočesky?",
             answer: "Rogendorf",
           },
           {
-            text: "Praktická část: rozeznáte piva Pivovaru Krumlov z degustačního prkénka. Zvolte zástupce týmu nebo hodnoťte společně.",
+            text: "Praktická část: dokážete pojmenovat piva Pivovaru Krumlov z degustačního prkénka? Zvolte zástupce týmu nebo hodnoťte společně.",
             tasting: true,
-            answer: "Degustace – bodování dle moderátora",
+            answer:
+              "modrá: Světlý ležák 11°, zelená: Premium světlý ležák 12°, žlutá: Tmavý nakuřovaný ležák 12°, červená: Festivalový speciál Rogendorf",
           },
         ],
       },
@@ -222,32 +221,33 @@ export const ROUNDS = [
           {
             text: "Jaký pivní rekord vytvořili návštěvníci Českého pivního festivalu v roce 2013?",
             options: [
-              "a) největší pivní tácek",
-              "b) štafetou vypili nejvyšší počet různých druhů piv (248 za půl hodiny)",
-              "c) nejvíce návštěvníků festivalu v Evropě",
-              "d) nejvíce nealkoholického piva",
+              "a) vyrobili největší pivní tácek",
+              "b) štafetou vypili nejvyšší počet různých druhů piv",
+              "c) šlo o nejvíce návštěvníků pivního festivalu v Evropě",
+              "d) vypili nejvíce nealkoholického piva",
             ],
-            answer: "b)",
+            answer:
+              "b) účastníci během půl hodin štafetou vypili 248 různých druhů piv",
           },
           {
-            text: "Tipněte: kolik lahví má ve sbírce Rob Werner (Guinnessův rekord)? Bod jen pro nejbližší tip.",
+            text: "Tipněte si: kolik lahví má ve sbírce držitel Guinnessova rekordu Rob Werner z USA? Bod dostane jen tým s nejbližším tipem.",
             answer: "25 866 lahví",
           },
           {
-            text: "Kolik alkoholu údajně má skotské pivo Snake Venom?",
+            text: "Kolik alkoholu má skotské pivo Snake Venom, které je podle jeho výrobce nejsilnější pivo na světě?",
             options: ["1. 52,5 %", "2. 82,3 %", "3. 67,5 %"],
             answer:
-              "67,5 % (oficiálně nepotvrzeno; Guinness uvádí BrewDog The End of History 55 %)",
+              "67,5 % (oficiálně nepotvrzeno; Guinnessova kniha rekordů uvádí jako nejsilnější pivo The End of History pivovaru BrewDog s 55 % alkoholu)",
           },
           {
             text: "V roce 2016 byla v belgických Bruggách vybudována pivní kuriozita. Která?",
             options: [
-              "a) pípa v kašně náměstí",
+              "a) pípa v kašně na náměstí",
               "b) speciální pivní potrubí",
               "c) ledová socha ze zmrzlého piva",
             ],
             answer:
-              "b) podzemní potrubí De Halve Maan (3+ km) – fanoušci za odměnu pivo zdarma",
+              "b) podzemní potrubí pivovaru De Halve Maan – vede z pivovaru do stáčírny a má přes 3 kilometry",
           },
         ],
       },
@@ -257,7 +257,7 @@ export const ROUNDS = [
         imageKey: "3-t2",
         questions: [
           {
-            text: "Jak se jmenuje pivovar, který vyrábí Guinness?",
+            text: "Jak se jmenuje pivovar, který vyrábí pivo Guinness?",
             options: [
               "a) Dubliner",
               "b) Hoegaarden",
@@ -296,8 +296,8 @@ export const ROUNDS = [
             answer: "Radegast",
           },
           {
-            text: "Uveďte tři ČESKÉ značky z portfolia Heineken ČR. Za dvě správné = ½ bodu.",
-            answer: "např. Krušovice, Starobrno, Zlatopramen, Březňák, Hostan",
+            text: "Uveďte tři ČESKÉ značky z portfolia společnosti Heineken ČR. Za dvě správné odpovědi dostanete půl bodu.",
+            answer: "Krušovice, Starobrno, Zlatopramen, Březňák, Hostan",
           },
         ],
       },
@@ -312,23 +312,25 @@ export const ROUNDS = [
         imageKey: "4-t1",
         questions: [
           {
-            text: "V posledních filmech s Danielem Craigem měl Bond často pivo místo martini. Jaká značka?",
-            answer: "Heineken (na kameře poprvé ve Skyfall, 2012)",
+            text: "V posledních filmech s Danielem Craigem vyměnil slavný špion James Bond martini za pivo. O jakou značku šlo?",
+            answer:
+              "Heineken (na kameře se poprvé objevilo ve filmu Skyfall (2012)",
           },
           {
-            text: "Který český spisovatel napsal Postřižiny a Slavnosti sněženek?",
+            text: "Který český spisovatel napsal Postřižiny a Slavnosti sněženek, kde hrají pivo a hospoda důležitou roli?",
             answer: "Bohumil Hrabal",
           },
           {
-            text: "Ve kterém románu hrdina chodí do hospody U Kalicha? (+½ bodu za autora)",
+            text: "Ve kterém románu chodí hlavní hrdina do hospody U Kalicha? Za jméno autora obdržíte půl bodu navíc.",
             answer: "Osudy dobrého vojáka Švejka – Jaroslav Hašek",
           },
           {
             text: "Jak se jmenuje pivo, kterému holduje Homer Simpson?",
-            answer: "Duff (v Shelbyvillu Fudd)",
+            answer:
+              "Duff. (V konkurenčním městě Shelbyville mají pivo značky Fudd.)",
           },
           {
-            text: "Dokončete: „Lepší pivo v žaludku nežli…“ (Posel z Liptákova)",
+            text: "Dokončete: „Lepší pivo v žaludku nežli…“ (replika z cimrmanovské hry Posel z Liptákova)",
             answer: "„…voda na plicích“",
           },
         ],
@@ -340,16 +342,17 @@ export const ROUNDS = [
         questions: [
           {
             text: "Čím se hlavně vyznačuje pivo weizen?",
-            answer: "obsahem pšenice – min. 50 % pšeničného sladu",
+            answer: "obsahem pšenice – má minimálně 50 % pšeničného sladu",
           },
           {
             text: "Co znamená zkratka IPA?",
             answer:
-              "India Pale Ale – silně chmelené světlé svrchně kvašené pivo (export do Indie)",
+              "India Pale Ale – silně chmelené světlé svrchně kvašené pivo (vzniklo pro export do Indie)",
           },
           {
             text: "Ve kterém století vznikl plzeňský ležák?",
-            answer: "19. století (první várka 5. 10. 1842, Josef Groll)",
+            answer:
+              "19. století (přesně to bylo 5. 10. 1842, uvařil ho bavorský sládek Josef Groll)",
           },
           {
             text: "Která země je proslulá trapistickými pivy z klášterů?",
@@ -357,43 +360,10 @@ export const ROUNDS = [
           },
           {
             text: "Jaké pivo dostanete, když si v české hospodě objednáte čochtana?",
-            answer:
-              "bez pěny, na jeden zátah – nejvíc CO₂, rychleji zvětrává (opak mlíka)",
+            answer: "bez pěny, na jeden zátah (opak mlíka)",
           },
         ],
       },
     ],
   },
 ];
-
-export const EXTRA = {
-  title: "EXTRA",
-  questions: [
-    {
-      text: "V jakém měsíci se převážně odehrává Oktoberfest?",
-      answer:
-        "září (dnes druhá polovina září – konec prvního říjnového víkendu)",
-    },
-    {
-      text: "Přiřaďte značku ke kontinentu / regionu:",
-      matchOptions: true,
-      matchColumnTitles: { left: "Značka piva", right: "Region" },
-      options: [
-        "1. Sapporo Premium",
-        "2. Tusker",
-        "3. Cusqueña",
-        "4. Coopers",
-        "A) Afrika (Keňa)",
-        "B) Japonsko",
-        "C) Austrálie",
-        "D) Jižní Amerika (Peru)",
-      ],
-      matchPairs: [
-        { left: "Sapporo Premium", right: "Japonsko" },
-        { left: "Tusker", right: "Afrika (Keňa)" },
-        { left: "Cusqueña", right: "Jižní Amerika (Peru)" },
-        { left: "Coopers", right: "Austrálie" },
-      ],
-    },
-  ],
-};

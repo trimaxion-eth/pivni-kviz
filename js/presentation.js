@@ -1,4 +1,4 @@
-import { META, RULES, IMAGES, ROUNDS, EXTRA } from "./quiz-data.js";
+import { META, RULES, IMAGES, ROUNDS } from "./quiz-data.js";
 import {
   renderMatchColumnsHtml,
   renderMatchPairsHtml,
@@ -117,36 +117,9 @@ function buildSlides() {
     });
   }
 
-  slides.push({ type: "extra-intro" });
-
-  EXTRA.questions.forEach((q, i) => {
-    slides.push({
-      type: "question",
-      round: "extra",
-      qNum: i + 1,
-      text: q.text,
-      image: null,
-      ...questionFields(q),
-    });
-  });
-
-  EXTRA.questions.forEach((q, i) => {
-    slides.push({
-      type: "answer",
-      round: "extra",
-      num: i + 1,
-      text: q.text,
-      image: null,
-      ...answerFields(q),
-      part: i + 1,
-      parts: EXTRA.questions.length,
-    });
-  });
-
   slides.push({
     type: "end",
     title: "Děkujeme za účast!",
-    links: ["port1560.cz", "Pivovar Krumlov"],
   });
 
   return slides;
@@ -198,10 +171,7 @@ function slideToHtml(slide) {
         </section>`;
 
     case "question": {
-      const label =
-        slide.round === "extra"
-          ? `Extra · otázka ${slide.qNum}`
-          : `${slide.round}. kolo · otázka ${slide.qNum}`;
+      const label = `${slide.round}. kolo · otázka ${slide.qNum}`;
       let optionsBlock = "";
       if (slide.matchOptions && slide.options) {
         optionsBlock = renderMatchColumnsHtml(
@@ -241,10 +211,7 @@ function slideToHtml(slide) {
         </section>`;
 
     case "answer": {
-      const roundLabel =
-        slide.round === "extra"
-          ? `Extra – odpověď ${slide.part}/${slide.parts}`
-          : `${slide.round}. kolo – odpověď ${slide.part}/${slide.parts}`;
+      const roundLabel = `${slide.round}. kolo – odpověď ${slide.part}/${slide.parts}`;
       const hasStructured =
         slide.matchPairs?.length || slide.orderItems?.length;
       let answerBlock = "";
@@ -271,20 +238,10 @@ function slideToHtml(slide) {
         </section>`;
     }
 
-    case "extra-intro":
-      return `
-        <section class="slide slide--round slide--extra">
-          <p class="slide__eyebrow">Bonus</p>
-          <h2 class="slide__round-num">Extra</h2>
-          <p class="slide__theme-title">2 bonusové otázky</p>
-        </section>`;
-
     case "end":
       return `
         <section class="slide slide--title slide--end">
           <h1 class="slide__hero">${escapeHtml(slide.title)}</h1>
-          <p class="slide__subtitle">${slide.links.map(escapeHtml).join(" · ")}</p>
-          <p class="slide__place">port1560.cz</p>
         </section>`;
 
     default:
