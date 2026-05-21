@@ -157,7 +157,6 @@ function slideToHtml(slide) {
     case "title":
       return `
         <section class="slide slide--title">
-          <p class="slide__eyebrow">Port ${META.year}</p>
           <h1 class="slide__hero">${escapeHtml(slide.title)}</h1>
           <p class="slide__subtitle">${escapeHtml(slide.subtitle)}</p>
           <p class="slide__place">${escapeHtml(slide.place)}</p>

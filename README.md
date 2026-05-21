@@ -4,14 +4,29 @@ Interaktivní slide deck pro živý pivní kvíz (Port 1560 / Festival piva).
 
 ## Spuštění
 
-Prezentace používá ES moduly – otevřete přes lokální server (ne `file://`):
+Prezentace používá ES moduly – otevřete přes lokální server (ne `file://`). Spouštějte z **kořene tohoto repozitáře** (složka s `index.html`):
 
 ```bash
-cd pivni-kviz
-python3 -m http.server 8765
+# varianta A – npm (doporučeno, port 8766)
+npm start
+
+# varianta B – Python
+python3 -m http.server 8766
 ```
 
-Poté v prohlížeči: **http://localhost:8765**
+Poté v prohlížeči: **http://localhost:8766**
+
+**Port 8765 nefunguje?** Na WSL/Linuxu bývá `8765` už obsazený jiným `python3 -m http.server` (často z jiného projektu). Pak buď použijte **8766** výše, nebo uvolněte port:
+
+```bash
+# kdo drží port (např. 8765)
+ss -tlnp | grep 8765
+
+# ukončit daný proces (nahraďte PID)
+kill <PID>
+```
+
+Jiný port: `python3 -m http.server 0` vypíše volný port v konzoli; v prohlížeči použijte stejné číslo v URL.
 
 ### Offline (bez serveru)
 

@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Pivní kvíz – beer quiz presentation deck for Port 1560",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 8766",
+    "serve": "python3 -m http.server 8766"
+  }
 }

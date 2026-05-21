@@ -50,7 +50,6 @@ export const IMAGES = {
   "3-6": "images/06-01-guiness.jpeg",
   "3-7": "images/06-02-limeta.jpeg",
   "3-8": "images/06-03-spoj.jpeg",
-  "3-9": "images/06-04-radegast.jpeg",
   "3-10": "images/06-05-heineken.jpeg",
   "4-t1": "images/07-00-popkultura.jpeg",
   "4-1": "images/07-01-bond.jpeg",
