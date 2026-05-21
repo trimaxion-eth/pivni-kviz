@@ -18,7 +18,6 @@ export const RULES = [
 /** @type {Record<string, string>} round-question → image path */
 export const IMAGES = {
   "1-1": "images/01-01-hops.jpg",
-  "1-2": "images/01-02-barley.webp",
   "1-3": "images/01-03-mash.jpg",
   "1-4": "images/01-04-yeast.webp",
   "1-5": "images/01-05-IBU.jpg",
